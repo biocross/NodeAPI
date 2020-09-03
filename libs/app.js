@@ -31,15 +31,9 @@ app.use('/api/articles', articles);
 app.use('/api/oauth/token', oauth2.token);
 app.get('/auth/google', passport.authenticate('google', { sessoion:false, scope: config.get('google:scope') }));
 
-// GET /auth/google/callback
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request.  If authentication fails, the user will be redirected back to the
-//   login page.  Otherwise, the primary route function function will be called,
-//   which, in this example, will redirect the user to the home page.
-app.get('/auth/google/callback', passport.authenticate('google', { sessoion:false, failureRedirect: config.get('google:failureRedirect') }),
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: config.get('google:failureRedirect') }),
 function(req, res) {
-    console.log(req, res);
-    res.redirect('/api/hello');
+    return res.status(200).json(req.user);
 });
 
 // catch 404 and forward to error handler
