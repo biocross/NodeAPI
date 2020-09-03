@@ -15,15 +15,17 @@
         "faker": "^2.0.x",
         "method-override": "^2.3.x",
         "mongoose": "^4.4.x",
+        "mongoose-findorcreate": "^3.0.0",
         "nconf": "^0.6.x",
         "oauth2orize": "^1.0.x",
         "passport": "^0.2.x",
+        "passport-google-oauth": "^2.0.0",
         "passport-http": "^0.2.x",
         "passport-http-bearer": "^1.0.x",
         "passport-oauth2-client-password": "^0.1.x",
         "winston": "^0.8.x"
     },
-    "jshintConfig":{
+    "jshintConfig": {
         "curly": true,
         "eqeqeq": true,
         "immed": true,
@@ -37,11 +39,11 @@
         "strict": false,
         "scripturl": true,
         "evil": true,
-        "globals" : {
+        "globals": {
             "location": true,
             "printStackTrace": false
         },
-        "browser" : true,
+        "browser": true,
         "node": true
     },
     "license": "MIT"

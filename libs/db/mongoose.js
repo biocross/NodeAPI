@@ -1,13 +1,13 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var libs = process.cwd() + '/libs/';
+const libs = process.cwd() + '/libs/';
 
-var log = require(libs + 'log')(module);
-var config = require(libs + 'config');
+const log = require(libs + 'log')(module);
+const config = require(libs + 'config');
+const opts = { useMongoClient: true };
+mongoose.connect(config.get('mongoose:uri'), opts);
 
-mongoose.connect(config.get('mongoose:uri'));
-
-var db = mongoose.connection;
+let db = mongoose.connection;
 
 db.on('error', function (err) {
 	log.error('Connection error:', err.message);
